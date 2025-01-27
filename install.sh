@@ -26,6 +26,10 @@ install_tmux() {
 }
 
 install_oh_my_zsh() {
+    ZSH=
+    CHSH='yes'
+    RUNZSH='yes'
+    KEEP_ZSHRC='yes'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
@@ -35,12 +39,8 @@ install_spaceship_prompt() {
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 }
 
-set_shell() {
-    sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
-}
 
 create_symlinks
 install_oh_my_zsh
 install_spaceship_prompt
 install_tmux
-set_shell
