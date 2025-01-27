@@ -147,9 +147,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-source /Users/bringel/development/panorama/school-supplies/bin/shell_includes.sh
+source $HOME/development/panorama/school-supplies/bin/shell_includes.sh
 
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/bringel/development/panorama/school-supplies/bin:/Users/bringel/development/panorama/nds/bin:/Users/bringel/development/panorama/monorama/apps/nds/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$HOME/development/panorama/school-supplies/bin:$HOME/development/panorama/nds/bin:$HOME/development/panorama/monorama/apps/nds/bin"
 #eval $(dinghy env)
 unalias git
 unalias node
@@ -225,15 +225,15 @@ function combine-all-tmux-sessions() {
 
 function mux-exporter() {
   pan-leapp-start-session-for 'SIS Credentials' 'CredentialsManagerDevelopment';
-  tmux new-window -c /Users/bringel/development/panorama/monorama/apps/nds -n exporter \; send-keys 'dc build exporter && dc run --rm --service-ports exporter bash' Enter
+  tmux new-window -c $HOME/development/panorama/monorama/apps/nds -n exporter \; send-keys 'dc build exporter && dc run --rm --service-ports exporter bash' Enter
 }
 
 function mux-nds-prod() {
-  tmux new-window -c /Users/bringel/development/panorama/monorama/apps/nds -n 'nds production' \; send-keys 'pan-console nds production' Enter
+  tmux new-window -c $HOME/development/panorama/monorama/apps/nds -n 'nds production' \; send-keys 'pan-console nds production' Enter
 }
 
 function mux-nds-staging() {
-  tmux new-window -c /Users/bringel/development/panorama/monorama/apps/nds -n 'nds staging' \; send-keys 'pan-console nds staging' Enter
+  tmux new-window -c $HOME/development/panorama/monorama/apps/nds -n 'nds staging' \; send-keys 'pan-console nds staging' Enter
 }
 
 function mux-nds-playground() {
