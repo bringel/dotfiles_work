@@ -16,9 +16,9 @@ create_symlinks() {
     done
 
     echo "Creating symlink to tmuxinator in home directory."
-    mkdir -p ~/.conf
-    rm -rf ~/.conf/tmuxinator
-    ln -s $script_dir/tmuxinator ~/.conf/tmuxinator
+    mkdir -p ~/.config
+    rm -rf ~/.config/tmuxinator
+    ln -s $script_dir/tmuxinator ~/.config/tmuxinator
 }
 
 install_tmux() {
