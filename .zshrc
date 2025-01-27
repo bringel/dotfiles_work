@@ -1,8 +1,10 @@
 autoload -U +X bashcompinit && bashcompinit
 autoload -U +X compinit && compinit
 
-if [[ -z "$PANORAMA_TOP" ]]; then
-  export PANORAMA_TOP=~/development/panorama
+if [ "$(whoami)" != "codespace" ]; then
+  export PANORAMA_TOP=$HOME/development/panorama
+else
+  export PANORAMA_TOP=/workspaces
 fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -149,13 +151,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-source $HOME/development/panorama/school-supplies/bin/shell_includes.sh
+source $PANORAMA_TOP/school-supplies/bin/shell_includes.sh
 
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$HOME/development/panorama/school-supplies/bin:$HOME/development/panorama/nds/bin:$HOME/development/panorama/monorama/apps/nds/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PANORAMA_TOP/school-supplies/bin:$PANORAMA_TOP/nds/bin:$PANORAMA_TOP/monorama/apps/nds/bin"
 #eval $(dinghy env)
-unalias git
-unalias node
-unalias npm
 
 alias dcr='docker-compose run --rm web'
 alias dcrc='docker-compose run --rm web rails c'
@@ -227,15 +226,15 @@ function combine-all-tmux-sessions() {
 
 function mux-exporter() {
   pan-leapp-start-session-for 'SIS Credentials' 'CredentialsManagerDevelopment';
-  tmux new-window -c $HOME/development/panorama/monorama/apps/nds -n exporter \; send-keys 'dc build exporter && dc run --rm --service-ports exporter bash' Enter
+  tmux new-window -c $PANORAMA_TOP/monorama/apps/nds -n exporter \; send-keys 'dc build exporter && dc run --rm --service-ports exporter bash' Enter
 }
 
 function mux-nds-prod() {
-  tmux new-window -c $HOME/development/panorama/monorama/apps/nds -n 'nds production' \; send-keys 'pan-console nds production' Enter
+  tmux new-window -c $PANORAMA_TOP/monorama/apps/nds -n 'nds production' \; send-keys 'pan-console nds production' Enter
 }
 
 function mux-nds-staging() {
-  tmux new-window -c $HOME/development/panorama/monorama/apps/nds -n 'nds staging' \; send-keys 'pan-console nds staging' Enter
+  tmux new-window -c $PANORAMA_TOP/monorama/apps/nds -n 'nds staging' \; send-keys 'pan-console nds staging' Enter
 }
 
 function mux-nds-playground() {

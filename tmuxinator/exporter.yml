@@ -1,7 +1,7 @@
 # /Users/bringel/.config/tmuxinator/exporter.yml
 
 name: exporter
-root: ~/development/panorama/nds
+root: $PANORAMA_TOP/monorama/apps/nds
 
 # Optional tmux socket
 # socket_name: foo

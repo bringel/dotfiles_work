@@ -1,7 +1,7 @@
 # /Users/bringel/.config/tmuxinator/nds.yml
 
 name: nds
-root: ~/development/panorama/monorama/apps/nds
+root: $PANORAMA_TOP/monorama/apps/nds
 
 # Optional tmux socket
 # socket_name: foo
@@ -48,7 +48,7 @@ windows:
   - shell:
     - clear
   - server:
-      root: ~/development/panorama/monorama/apps/nds
+      root: $PANORAMA_TOP/monorama/apps/nds
       layout: even-vertical
       #layout: 374e,140x44,0,0[140x25,0,0,8,140x18,0,26{69x18,0,26,9,70x18,70,26,10}]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
