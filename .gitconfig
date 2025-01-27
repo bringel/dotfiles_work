@@ -1,0 +1,29 @@
+[user]
+	name = Brad Ringel
+	email = bringel@panoramaed.com
+[push]
+	default = simple
+	autoSetupRemote = true
+[submodule]
+	recurse = true
+[status]
+	submodulesummary = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	co = checkout
+	br = branch
+	sw = switch
+	st = status
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[core]
+	trustctime = false
+	excludesfile = /Users/bringel/.gitignore_global
+[commit]
+	template = /Users/bringel/.stCommitMsg
+[init]
+	defaultBranch = main
