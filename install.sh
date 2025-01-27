@@ -16,13 +16,14 @@ create_symlinks() {
     done
 
     echo "Creating symlink to tmuxinator in home directory."
+    mkdir -p ~/.conf
     rm -rf ~/.conf/tmuxinator
     ln -s $script_dir/tmuxinator ~/.conf/tmuxinator
 }
 
 install_tmux() {
-    sudo apt-get install tmux
-    gem insatll tmuxinator
+    sudo apt-get install -y tmux
+    gem install tmuxinator
 }
 
 install_oh_my_zsh() {
@@ -35,11 +36,15 @@ install_oh_my_zsh() {
 
 install_spaceship_prompt() {
     ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-    clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 }
 
+change_shell() {
+    sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
+}
 
+change_shell
 create_symlinks
 install_oh_my_zsh
 install_spaceship_prompt
