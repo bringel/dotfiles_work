@@ -61,4 +61,4 @@ windows:
           - docker-compose run --rm web bundle install && docker-compose up web
         - yarn:
           - clear
-          - yarn install && yarn run dev
+          - start-nds-vite
