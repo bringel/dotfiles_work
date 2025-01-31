@@ -254,6 +254,14 @@ function update-pan-dbs() {
   $PANORAMA_TOP/school-supplies/bin/database/setup-dbs
 }
 
+function start-nds-vite() {
+  if [ "$(whoami)" != "codespace" ]; then
+    export PANORAMA_TOP=$HOME/development/panorama
+  else
+   export PANORAMA_TOP=/workspaces
+  fi
+}
+
 # docker desktop setup
 export PATH="$HOME/.docker/bin:$PATH"
 INOTIFY_ENABLED=true
