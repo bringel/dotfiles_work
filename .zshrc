@@ -152,6 +152,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 source $PANORAMA_TOP/school-supplies/bin/shell_includes.sh
+source $PANORAMA_TOP/school-supplies/bin/aws_sso_shell_includes.sh
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PANORAMA_TOP/school-supplies/bin:$PANORAMA_TOP/nds/bin:$PANORAMA_TOP/monorama/apps/nds/bin"
 #eval $(dinghy env)
