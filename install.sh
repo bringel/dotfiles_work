@@ -23,7 +23,6 @@ create_symlinks() {
 
 install_tmux() {
     sudo apt-get install -y tmux
-    gem install tmuxinator
 }
 
 install_oh_my_zsh() {
