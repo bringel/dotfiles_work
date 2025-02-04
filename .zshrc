@@ -257,9 +257,9 @@ function update-pan-dbs() {
 
 function start-nds-vite() {
   if [ "$(whoami)" != "codespace" ]; then
-    export PANORAMA_TOP=$HOME/development/panorama
+    yarn run dev
   else
-   export PANORAMA_TOP=/workspaces
+    dc up vite --watch
   fi
 }
 
