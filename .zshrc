@@ -5,6 +5,7 @@ if [ "$(whoami)" != "codespace" ]; then
   export PANORAMA_TOP=$HOME/development/panorama
 else
   export PANORAMA_TOP=/workspaces
+  export BROWSER=/bin/true
 fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -46,7 +47,7 @@ SPACESHIP_PROMPT_ORDER=(
   conda         # conda virtualenv section
 #  pyenv         # Pyenv section
   dotnet        # .NET section
-  ember         # Ember.js section
+#  ember         # Ember.js section
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   ibmcloud      # IBM Cloud section
