@@ -43,6 +43,10 @@ change_shell() {
     sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
 }
 
+install_kube_tmux() {
+  git clone https://github.com/jonmosco/kube-tmux.git $HOME/.tmux/kube-tmux
+}
+
 change_shell
 create_symlinks
 install_oh_my_zsh
