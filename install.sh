@@ -47,8 +47,14 @@ install_kube_tmux() {
   git clone https://github.com/jonmosco/kube-tmux.git $HOME/.tmux/kube-tmux
 }
 
+install_local_irbrc() { 
+  ln -s $script_dir/local_irbrc.rb /workspaces/monorama/apps/nds/local_irbrc.rb
+}
+
 change_shell
 create_symlinks
 install_oh_my_zsh
 install_spaceship_prompt
 install_tmux
+install_kube_tmux
+install_local_irbrc

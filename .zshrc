@@ -173,6 +173,7 @@ alias lsp-bundle-update="{ pushd ~/ruby-lsp-custom-bundle; bundle update ruby-ls
 alias mux="tmuxinator"
 alias start-sis-credentials-session="pan-leapp-start-session-for 'SIS Credentials' 'CredentialsManagerDevelopment'"
 alias dc-guard="docker compose run --rm test bundle exec guard"
+alias cs-ssh="gh cs ssh -- -t 'tmux new-session -A -s CS'"
 
 function staging-db() {
   psql $(heroku config:get DATABASE_URL -a panorama-nds-staging)
