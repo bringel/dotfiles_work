@@ -173,7 +173,7 @@ alias lsp-bundle-update="{ pushd ~/ruby-lsp-custom-bundle; bundle update ruby-ls
 alias mux="tmuxinator"
 alias start-sis-credentials-session="pan-leapp-start-session-for 'SIS Credentials' 'CredentialsManagerDevelopment'"
 alias dc-guard="docker compose run --rm test bundle exec guard"
-alias cs-ssh="gh cs ssh -- -t 'tmux new-session -A -s CS'"
+alias cs-ssh="gh cs ssh -- -t 'tmux new-session -c /workspaces/monorama/apps/nds -A -s CS'"
 
 function staging-db() {
   psql $(heroku config:get DATABASE_URL -a panorama-nds-staging)
@@ -257,6 +257,10 @@ function update-pan-dbs() {
   $PANORAMA_TOP/school-supplies/bin/database/setup-dbs
 }
 
+function start-nds-server() {
+  dc up web
+}
+
 function start-nds-vite() {
   if [ "$(whoami)" != "codespace" ]; then
     yarn run dev
@@ -265,11 +269,21 @@ function start-nds-vite() {
   fi
 }
 
+function start-nds() {
+  tmux new-window -n 'run nds';
+  tmux send-keys 'cd $nds' Enter 'start-nds-server' Enter;
+  tmux split-window;
+  tmux send-keys 'cd $nds' Enter 'start-nds-vite' Enter;
+}
+
+function caffeinate-hours() {
+  caffeinate -dims -t $(( $1 * 3600 )) &;
+}
 # docker desktop setup
 export PATH="$HOME/.docker/bin:$PATH"
 INOTIFY_ENABLED=true
 
 #source ~/dotfiles/color_background_overwrites.sh
 
-chruby ruby-3.3.2
+chruby ruby-3.3.10
 
