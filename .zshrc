@@ -174,6 +174,7 @@ alias mux="tmuxinator"
 alias start-sis-credentials-session="pan-leapp-start-session-for 'SIS Credentials' 'CredentialsManagerDevelopment'"
 alias dc-guard="docker compose run --rm test bundle exec guard"
 alias cs-ssh="gh cs ssh -- -t 'tmux new-session -c /workspaces/monorama/apps/nds -A -s CS'"
+alias mux-nds="tmux new-session -c /workspaces/monorama/apps/nds -A -s CS"
 
 function staging-db() {
   psql $(heroku config:get DATABASE_URL -a panorama-nds-staging)
