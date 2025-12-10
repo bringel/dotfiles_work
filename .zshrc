@@ -259,7 +259,11 @@ function update-pan-dbs() {
 }
 
 function start-nds-server() {
-  dc up web
+  if [[ "$1" == "--playground" ]]; then
+    ./bin/playground.sh dc up web
+  else
+    dc up web
+  fi
 }
 
 function start-nds-vite() {
@@ -272,7 +276,7 @@ function start-nds-vite() {
 
 function start-nds() {
   tmux new-window -n 'run nds';
-  tmux send-keys 'cd $nds' Enter 'start-nds-server' Enter;
+  tmux send-keys 'cd $nds' Enter "start-nds-server $1" Enter;
   tmux split-window;
   tmux send-keys 'cd $nds' Enter 'start-nds-vite' Enter;
 }
